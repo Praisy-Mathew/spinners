@@ -8,7 +8,7 @@
     <meta name="description" content="Spinners">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--====== Title ======-->
-    <title>SPINNERS HYGENIC SHAWARMA MAKERS</title>
+    <title>SPINNERS HYGIENIC SHAWARMA MAKERS</title>
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="assets/images/Spinners logo black.png" type="image/png">
     <!--====== Google Fonts ======-->
@@ -47,6 +47,104 @@
             height: 90px !important; /* Adjust size as needed */
         }
     }
+    /* Apply automatic floating animation to hero items */
+.elements img,
+.after-image img {
+    animation: floatAnim 6s ease-in-out infinite;
+}
+
+/* Floating keyframes */
+@keyframes floatAnim {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Different speeds for hero elements */
+.el-one img { animation-duration: 5s; }
+.el-two img { animation-duration: 7s; }
+.el-three img { animation-duration: 6s; }
+.el-four img { animation-duration: 8s; }
+.el-five img { animation-duration: 9s; }
+.el-six img { animation-duration: 10s; }
+
+/* Specific speed for after image */
+.after-image img { animation-duration: 7s; }
+/* Explosion animation applied safely without affecting original size/position */
+.hero-wrapper-five .elements span,
+.hero-wrapper-five .after-image span {
+    animation: explodeOnly 1.2s ease-out;
+}
+
+/* Only movement + opacity, NO final transform */
+@keyframes explodeOnly {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.2);
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(0, 0, 0) scale(1); /* final = unchanged */
+        opacity: 1;
+    }
+}
+
+/* Optional floating effect */
+.hero-wrapper-five .elements img,
+.hero-wrapper-five .after-image img {
+    animation: floatAnim 5s ease-in-out infinite;
+}
+
+@keyframes floatAnim {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+.hero-wrapper-five .elements span,
+.hero-wrapper-five .after-image span {
+    animation: explodeUltra 1.6s cubic-bezier(.25,.46,.45,.94);
+}
+
+@keyframes explodeUltra {
+    0% {
+        transform: translate3d(0,0,0) scale(0.1) rotate(-20deg);
+        opacity: 0;
+        filter: blur(20px) brightness(1.5);
+    }
+    30% {
+        transform: scale(1.3) rotate(12deg);
+        opacity: 1;
+        filter: blur(5px);
+    }
+    60% {
+        transform: scale(0.9) rotate(-6deg);
+        filter: blur(2px);
+    }
+    80% {
+        transform: scale(1.05) rotate(3deg);
+        filter: blur(0.5px);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        filter: blur(0);
+    }
+}
+ @media (max-width: 767px) {
+    .elements {
+        display: block !important;
+        width: 50px;
+        height: auto;
+    }
+} 
+
 </style>
 
 </head>
@@ -92,7 +190,7 @@
                                     <li class="menu-item has-children"><a href="menu.html">Menu</a>
                                         
                                     </li>
-                                    <li class="menu-item has-children"><a href="franchise.html">Franchise</a>
+                                    <li class="menu-item has-children"><a href="franchise.html">Franchise Model</a>
                                         
                                     </li>
                                     
@@ -119,27 +217,56 @@
             </div>
         </div>
     </header><!--====== End Header Area ======-->
-    <!--====== Start Hero Section ======-->
     <section class="hero-section">
+            <!--====== Hero Wrapper ======-->
+            <div class="hero-wrapper-five p-r">
+                <div class="elements el-one scene"><span data-depth=".5"><img src="assets/images/home-beef/hero/el-1.png" alt="element"></span></div>
+                <div class="elements el-two scene"><span data-depth=".10"><img src="assets/images/home-beef/hero/el-2.png" alt="element"></span></div>
+                <div class="elements el-three scene"><span data-depth=".15"><img src="assets/images/home-beef/hero/el-3.png" alt="element"></span></div>
+                <div class="elements el-four scene"><span data-depth=".20"><img src="assets/images/home-beef/hero/el-4.png" alt="element"></span></div>
+                <div class="elements el-five scene"><span data-depth=".25"><img src="assets/images/home-beef/hero/el-5.png" alt="element"></span></div>
+                <div class="elements el-six scene"><span data-depth=".35"><img src="assets/images/home-beef/hero/el-5.png" alt="element"></span></div>
+                
+                <!-- Hero Bg Image -->
+                <div class="hero-bg-img text-center">
+                    <img src="assets/images/bg/order-bg1.jpg" alt="Food Image">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hero-content text-center">
+                                <h1 class="wow fadeInDown" data-wow-delay=".6s" style="color: white;"></h1>
+                            </div>
+                            <div class="hero-image text-center">
+                                <img src="assets/images/team/spinners22.avif" class="wow fadeInUp" alt="Hero Beef">
+                                <div class="after-image"class="wow zoomIn">
+                                    <div class="image scene">
+                                        <span data-depth=".25"><img src="assets/images/home-beef/hero/el-6.png" alt="After Element Image" ></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!--====== Start Hero Section ======-->
+    <!-- <section class="hero-section">
         <div class="hero-wrapper-four">
             <div class="hero-bg bg_cover" style="background-image: url(assets/images/hero/hero-four_bg.png);"></div>
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-6 order-2 order-xl-1">
-                        <!--=== Hero Content ===-->
                         <div class="hero-content">
-                            <span class="tag-line wow fadeInDown" data-wow-delay=".5s">SPINNERS HYGENIC SHAWARMA
+                            <span class="tag-line wow fadeInDown" data-wow-delay=".5s">SPINNERS HYGIENIC SHAWARMA
                                 MAKERS</span>
                             <h1 class="wow fadeInUp" data-wow-delay=".6s">Enjoy our <span>delicius</span> food</h1>
                             <p class="wow fadeInDown" data-wow-delay=".7s">“Experience the perfect blend of tradition
                                 and cleanliness — where authentic taste meets modern hygiene.”</p>
-                            <!-- <div class="hero-button wow fadeInUp" data-wow-delay=".75s">
-                                    <a href="index.html" class="theme-btn style-one">Order Now</a>
-                                </div> -->
+                           
                         </div>
                     </div>
                     <div class="col-xl-6 order-1 order-xl-2">
-                        <!--=== Hero Image ===-->
                         <div class="hero-image text-center text-xl-end">
                             <div class="shape wow bounceInUp"><span><img src=""
                                         ></span></div>
@@ -151,9 +278,9 @@
                 </div>
             </div>
         </div>
-    </section><!--====== End Hero Section ======-->
+    </section> -->
     <!--====== Start Category Section ======-->
-    <section class="category-section pt-130">
+    <section class="category-section pt-50">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -277,7 +404,7 @@
                 <div class="col-xl-6">
                     <!--=== About Image Box ===-->
                     <div class="about-image-box mb-50 text-center text-xl-start wow fadeInLeft">
-                        <img src="assets/images/team/spinners22.avif" style="width:500px;" alt="About Image">
+                        <img src="assets/images/shawarma.avif" style="width:500px;" alt="About Image">
                     </div>
                 </div>
                 <div class="col-xl-6">
@@ -286,6 +413,8 @@
                         <!--=== Section Title ===-->
                         <div class="section-title wow fadeInDown">
                             <span class="sub-title"><i class="flaticon-food-tray"></i> About us</span>
+                            <h3 style="color:#77af28; font-style: italic;">SPINNERS HYGIENIC SHAWARMA
+                                MAKERS-</h3>
                             <h3>Bringing Back the True Shawarma Culture</h3>
                         </div>
                         <br>
@@ -293,7 +422,7 @@
                             In today’s world, shawarma has sadly been reduced to an open-space, gas-cooked
                             fast food, often made with cheaper meat, excess masala, and questionable hygiene.
                             We’re here to change that narrative.<br><br>
-                            <span style="font-weight: bold;">SPINNERS HYGENIC SHAWARMA MAKERS</span> is born out of a mission — to bring back
+                            <span style="font-weight: bold;">SPINNERS HYGIENIC SHAWARMA MAKERS</span> is born out of a mission — to bring back
                             the true Arabic and Turkish shawarma culture — the one that values purity, flavour,
                             health, and hygiene above all.<br>
                             Our shawarmas are made in closed, sanitized kitchens, using premium quality farmfresh meat,
@@ -310,7 +439,7 @@
     <section class="offer-combo-section">
         <div class="offer-bg-wrapper bg_cover p-r z-1 pt-130 pb-80"
             style="background-image: url(assets/images/bg/offer-bg1.jpg);">
-            <div class="shape shape-one"><span><img src="assets/images/team/spinners12.webp" alt=""></span>
+             <div class="shape shape-one"><span></span> 
             </div>
             <div class="container">
                 <div class="row">
@@ -324,7 +453,7 @@
                                 <p>We don’t just sell shawarma.
                                     We serve trust wrapped in flavor, hygiene folded with health, and authenticity that
                                     satisfies the soul.
-                                    SPINNERS HYGENIC SHAWARMA MAKERS —
+                                    SPINNERS HYGIENIC SHAWARMA MAKERS —
                                     Where quality meets care, and tradition meets trust.</p>
                             </div>
 
@@ -334,7 +463,7 @@
                     <div class="col-lg-6">
                         <!--=== Offer Image Box ===-->
                         <div class="offer-image-box text-center text-lg-end mb-50 wow fadeInRight">
-                            <img src="assets/images/team/shawarma-hd-8k-wallpaper-stock-photographic-image_949228-22096.png"
+                            <img src="assets/images/team/shawarma-with-meat-vegetables-white-background-isolate-generative-ai_74760-4694-removebg-preview.png"
                                 alt="Combo Package image">
                         </div>
                     </div>
@@ -519,11 +648,11 @@
 </style>
 
     <!--===== Start Menu Section ======-->
-    <section class="menu-section pt-30 pb-100">
+    <!-- <section class="menu-section pt-30 pb-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <!--== Section Title ===-->
+            
                     <div class="section-title text-center mb-55 wow fadeInDown">
                         <span class="sub-title"><i class="flaticon-food-tray"></i>Delicious Menu</span>
                         <h2>Explore Our Delicious <br> Menu</h2>
@@ -535,7 +664,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <!--== Menu Item ===-->
+                
                     <div class="menu-item style-eight mb-30 wow fadeInUp">
                         <div class="menu-thumbnail">
                             <img src="assets/images/team/spinners1.jpg" alt="Menu Thumbnail">
@@ -552,7 +681,6 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!--== Menu Item ===-->
                     <div class="menu-item style-eight mb-30 wow fadeInUp">
                         <div class="menu-thumbnail">
                             <img src="assets/images/team/menu1.webp" alt="Menu Thumbnail">
@@ -569,7 +697,6 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!--== Menu Item ===-->
                     <div class="menu-item style-eight mb-30 wow fadeInUp">
                         <div class="menu-thumbnail">
                             <img src="assets/images/team/spinners3.jpeg" alt="Menu Thumbnail">
@@ -586,7 +713,6 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!--== Menu Item ===-->
                     <div class="menu-item style-eight mb-30 wow fadeInUp">
                         <div class="menu-thumbnail">
                             <img src="assets/images/team/menu2.webp" alt="Menu Thumbnail">
@@ -603,7 +729,6 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!--== Menu Item ===-->
                     <div class="menu-item style-eight mb-30 wow fadeInUp">
                         <div class="menu-thumbnail">
                             <img src="assets/images/team/menu3.png" alt="Menu Thumbnail">
@@ -620,7 +745,6 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!--== Menu Item ===-->
                     <div class="menu-item style-eight mb-30 wow fadeInUp">
                         <div class="menu-thumbnail">
                             <img src="assets/images/team/menu4.jpg" alt="Menu Thumbnail">
@@ -637,7 +761,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!--== Menu Item ===-->
+    
                     <div class="menu-item style-eight mb-30 wow fadeInUp">
                         <div class="menu-thumbnail">
                             <img src="assets/images/team/menu5.jpeg" alt="Menu Thumbnail">
@@ -654,7 +778,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!--== Menu Item ===-->
+    
                     <div class="menu-item style-eight mb-30 wow fadeInUp">
                         <div class="menu-thumbnail">
                             <img src="assets/images/team/menu6.jpg" alt="Menu Thumbnail">
@@ -672,7 +796,7 @@
                 </div>
             </div>
         </div>
-    </section><!--===== Ens Menu Section ======-->
+    </section> -->
     <style>
     /* Prevent title and text color from changing on hover */
     .menu-item.style-eight .menu-content-wrap .title a,
@@ -1142,7 +1266,7 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="menu.html">Menu</a></li>
-                                    <li><a href="franchise.html">Franchise</a></li>
+                                    <li><a href="franchise.html">Franchise Model</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
