@@ -36,188 +36,272 @@
     <!--====== Style css ======-->
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .btn.style-one:hover{
-            color:black !important;
+        .btn.style-one:hover {
+            color: black !important;
         }
     </style>
     <style>
-    /* Mobile View Logo Resize */
-    @media (max-width: 767px) {
-        .brand-logo img {
-            height: 90px !important; /* Adjust size as needed */
+        /* Mobile View Logo Resize */
+        @media (max-width: 767px) {
+            .brand-logo img {
+                height: 90px !important;
+                /* Adjust size as needed */
+            }
         }
-    }
-    /* Apply automatic floating animation to hero items */
-.elements img,
-.after-image img {
-    animation: floatAnim 6s ease-in-out infinite;
+
+        /* Apply automatic floating animation to hero items */
+        .elements img,
+        .after-image img {
+            animation: floatAnim 6s ease-in-out infinite;
+        }
+
+        /* Floating keyframes */
+        @keyframes floatAnim {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(2deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        /* Different speeds for hero elements */
+        .el-one img {
+            animation-duration: 5s;
+        }
+
+        .el-two img {
+            animation-duration: 7s;
+        }
+
+        .el-three img {
+            animation-duration: 6s;
+        }
+
+        .el-four img {
+            animation-duration: 8s;
+        }
+
+        .el-five img {
+            animation-duration: 9s;
+        }
+
+        .el-six img {
+            animation-duration: 10s;
+        }
+
+        /* Specific speed for after image */
+        .after-image img {
+            animation-duration: 7s;
+        }
+
+        /* Explosion animation applied safely without affecting original size/position */
+        .hero-wrapper-five .elements span,
+        .hero-wrapper-five .after-image span {
+            animation: explodeOnly 1.2s ease-out;
+        }
+
+        /* Only movement + opacity, NO final transform */
+        @keyframes explodeOnly {
+            0% {
+                transform: translate3d(0, 0, 0) scale(0.2);
+                opacity: 0;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+                /* final = unchanged */
+                opacity: 1;
+            }
+        }
+
+        /* Optional floating effect */
+        .hero-wrapper-five .elements img,
+        .hero-wrapper-five .after-image img {
+            animation: floatAnim 5s ease-in-out infinite;
+        }
+
+        @keyframes floatAnim {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .hero-wrapper-five .elements span,
+        .hero-wrapper-five .after-image span {
+            animation: explodeUltra 1.6s cubic-bezier(.25, .46, .45, .94);
+        }
+
+        @keyframes explodeUltra {
+            0% {
+                transform: translate3d(0, 0, 0) scale(0.1) rotate(-20deg);
+                opacity: 0;
+                filter: blur(20px) brightness(1.5);
+            }
+
+            30% {
+                transform: scale(1.3) rotate(12deg);
+                opacity: 1;
+                filter: blur(5px);
+            }
+
+            60% {
+                transform: scale(0.9) rotate(-6deg);
+                filter: blur(2px);
+            }
+
+            80% {
+                transform: scale(1.05) rotate(3deg);
+                filter: blur(0.5px);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                filter: blur(0);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .elements {
+                display: block !important;
+                width: 50px;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            /* Reduce size of all parallax elements */
+            .elements img {
+                width: 55px;
+                /* adjust as needed */
+                height: auto;
+            }
+
+            /* Adjust individual positions on mobile */
+            .el-one {
+                top: 20px;
+                left: 10px;
+            }
+
+            .el-two {
+                top: 50px;
+                right: 20px;
+            }
+
+            .el-three {
+                top: 120px;
+                left: 15px;
+            }
+
+            .el-four {
+                bottom: 140px;
+                right: 10px;
+            }
+
+            .el-five {
+                bottom: 80px;
+                left: 20px;
+            }
+
+            .el-six {
+                bottom: 40px;
+                right: 15px;
+            }
+
+            /* Make sure they don’t overflow the screen */
+            .elements {
+                position: absolute !important;
+                z-index: 10;
+            }
+
+        }
+
+        @media (max-width: 767px) {
+
+            .after-image {
+                position: absolute;
+                bottom: 20px;
+                /* adjust vertically */
+                left: 50%;
+                /* move to center */
+                transform: translateX(-50%);
+                /* perfectly centered */
+                z-index: 20;
+            }
+
+        }
+
+        @media (max-width: 767px) {
+
+            .hero-bg-img img {
+                height: 580px;
+                /* increase height */
+                object-fit: cover;
+                /* keeps image clean */
+                width: 100%;
+            }
+
+            /* Optional: increase wrapper height so image fits properly */
+            .hero-section,
+            .hero-wrapper-five {
+                min-height: 580px;
+                /* adjust as needed */
+            }
+        }
+        /* Default: show all images */
+.about-image-box img {
+    display: block;
 }
 
-/* Floating keyframes */
-@keyframes floatAnim {
-    0% {
-        transform: translateY(0px) rotate(0deg);
+/* Mobile view: show only 2nd image */
+@media (max-width: 767px) {
+    .about-image-box img:last-child {
+        display: none; /* hide first image on mobile */
     }
-    50% {
-        transform: translateY(-18px) rotate(2deg);
-    }
-    100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-}
-
-/* Different speeds for hero elements */
-.el-one img { animation-duration: 5s; }
-.el-two img { animation-duration: 7s; }
-.el-three img { animation-duration: 6s; }
-.el-four img { animation-duration: 8s; }
-.el-five img { animation-duration: 9s; }
-.el-six img { animation-duration: 10s; }
-
-/* Specific speed for after image */
-.after-image img { animation-duration: 7s; }
-/* Explosion animation applied safely without affecting original size/position */
-.hero-wrapper-five .elements span,
-.hero-wrapper-five .after-image span {
-    animation: explodeOnly 1.2s ease-out;
-}
-
-/* Only movement + opacity, NO final transform */
-@keyframes explodeOnly {
-    0% {
-        transform: translate3d(0, 0, 0) scale(0.2);
-        opacity: 0;
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        transform: translate3d(0, 0, 0) scale(1); /* final = unchanged */
-        opacity: 1;
-    }
-}
-
-/* Optional floating effect */
-.hero-wrapper-five .elements img,
-.hero-wrapper-five .after-image img {
-    animation: floatAnim 5s ease-in-out infinite;
-}
-
-@keyframes floatAnim {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-.hero-wrapper-five .elements span,
-.hero-wrapper-five .after-image span {
-    animation: explodeUltra 1.6s cubic-bezier(.25,.46,.45,.94);
-}
-
-@keyframes explodeUltra {
-    0% {
-        transform: translate3d(0,0,0) scale(0.1) rotate(-20deg);
-        opacity: 0;
-        filter: blur(20px) brightness(1.5);
-    }
-    30% {
-        transform: scale(1.3) rotate(12deg);
-        opacity: 1;
-        filter: blur(5px);
-    }
-    60% {
-        transform: scale(0.9) rotate(-6deg);
-        filter: blur(2px);
-    }
-    80% {
-        transform: scale(1.05) rotate(3deg);
-        filter: blur(0.5px);
-    }
-    100% {
-        transform: scale(1) rotate(0deg);
-        filter: blur(0);
-    }
-}
- @media (max-width: 767px) {
-    .elements {
-        display: block !important;
-        width: 50px;
+    .about-image-box img:first-child {
+        display: block; /* ensure second image is visible */
+        width: 100% !important;
         height: auto;
     }
-} 
+}
+/* Mobile View: Reverse the order of the two columns */
 @media (max-width: 767px) {
+    .about-section .row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 
-    /* Reduce size of all parallax elements */
-    .elements img {
-        width: 55px;   /* adjust as needed */
+    /* Hide the first image and show only second one */
+    .about-image-box img:last-child {
+        display: none;
+    }
+
+    .about-image-box img:first-child {
+        display: block;
+        width: 100% !important;
         height: auto;
     }
-
-    /* Adjust individual positions on mobile */
-    .el-one {
-        top: 20px;
-        left: 10px;
-    }
-
-    .el-two {
-        top: 50px;
-        right: 20px;
-    }
-
-    .el-three {
-        top: 120px;
-        left: 15px;
-    }
-
-    .el-four {
-        bottom: 140px;
-        right: 10px;
-    }
-
-    .el-five {
-        bottom: 80px;
-        left: 20px;
-    }
-
-    .el-six {
-        bottom: 40px;
-        right: 15px;
-    }
-
-    /* Make sure they don’t overflow the screen */
-    .elements {
-        position: absolute !important;
-        z-index: 10;
-    }
-   
-}
-@media (max-width: 767px) {
-
-    .after-image {
-        position: absolute;
-        bottom: 20px;        /* adjust vertically */
-        left: 50%;           /* move to center */
-        transform: translateX(-50%); /* perfectly centered */
-        z-index: 20;
-    }
-
-}
-@media (max-width: 767px) {
-
-    .hero-bg-img img {
-        height: 580px;     /* increase height */
-        object-fit: cover; /* keeps image clean */
-        width: 100%;
-    }
-
-    /* Optional: increase wrapper height so image fits properly */
-    .hero-section,
-    .hero-wrapper-five {
-        min-height: 580px; /* adjust as needed */
-    }
 }
 
-
-</style>
+    </style>
 
 </head>
 
@@ -254,29 +338,29 @@
                             <nav class="main-menu">
                                 <ul>
                                     <li class="menu-item has-children"><a href="index.html">Home</a>
-                                        
+
                                     </li>
                                     <li class="menu-item has-children"><a href="about.html">About Us</a>
-                                        
+
                                     </li>
                                     <li class="menu-item has-children"><a href="menu.html">Menu</a>
-                                        
+
                                     </li>
                                     <li class="menu-item has-children"><a href="franchise.html">Franchise Model</a>
-                                        
+
                                     </li>
-                                    
+
                                     <li class="menu-item"><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>
                             <!--=== Nav Button ===-->
-                           
+
                         </div>
                         <!--=== Nav Right Item ===-->
                         <div class="nav-right-item">
-                            
+
                             <div class="">
-                               
+
                             </div>
                             <div class="navbar-toggler">
                                 <span></span>
@@ -290,38 +374,47 @@
         </div>
     </header><!--====== End Header Area ======-->
     <section class="hero-section">
-            <!--====== Hero Wrapper ======-->
-            <div class="hero-wrapper-five p-r">
-                <div class="elements el-one scene"><span data-depth=".5"><img src="assets/images/home-beef/hero/el-1.png" alt="element"></span></div>
-                <div class="elements el-two scene"><span data-depth=".10"><img src="assets/images/home-beef/hero/el-2.png" alt="element"></span></div>
-                <div class="elements el-three scene"><span data-depth=".15"><img src="assets/images/home-beef/hero/el-3.png" alt="element"></span></div>
-                <div class="elements el-four scene"><span data-depth=".20"><img src="assets/images/home-beef/hero/el-4.png" alt="element"></span></div>
-                <div class="elements el-five scene"><span data-depth=".25"><img src="assets/images/home-beef/hero/el-5.png" alt="element"></span></div>
-                <div class="elements el-six scene"><span data-depth=".35"><img src="assets/images/home-beef/hero/el-5.png" alt="element"></span></div>
-                
-                <!-- Hero Bg Image -->
-                <div class="hero-bg-img text-center">
-                    <img src="assets/images/bg/order-bg1.jpg" alt="Food Image">
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="hero-content text-center">
-                                <h1 class="wow fadeInDown" data-wow-delay=".6s" style="color: white;"></h1>
-                            </div>
-                            <div class="hero-image text-center">
-                                <img src="assets/images/team/spinners22.avif" class="wow fadeInUp" alt="Hero Beef">
-                                <div class="after-image"class="wow zoomIn">
-                                    <div class="image scene">
-                                        <span data-depth=".25"><img src="assets/images/home-beef/hero/el-6.png" alt="After Element Image" ></span>
-                                    </div>
+        <div class="hero-wrapper-five p-r">
+            <div class="elements el-one scene"><span data-depth=".5"><img src="assets/images/home-beef/hero/el-1.png"
+                        alt="element"></span></div>
+            <div class="elements el-two scene"><span data-depth=".10"><img src="assets/images/home-beef/hero/el-2.png"
+                        alt="element"></span></div>
+            <div class="elements el-three scene"><span data-depth=".15"><img src="assets/images/home-beef/hero/el-3.png"
+                        alt="element"></span></div>
+            <div class="elements el-four scene"><span data-depth=".20"><img src="assets/images/home-beef/hero/el-4.png"
+                        alt="element"></span></div>
+            <div class="elements el-five scene"><span data-depth=".25"><img src="assets/images/home-beef/hero/el-5.png"
+                        alt="element"></span></div>
+            <div class="elements el-six scene"><span data-depth=".35"><img src="assets/images/home-beef/hero/el-5.png"
+                        alt="element"></span></div>
+
+            <div class="hero-bg-img text-center">
+                <img src="assets/images/bg/order-bg1.jpg" alt="Food Image">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="hero-content text-center">
+                            <h1 class="wow fadeInDown" data-wow-delay=".6s" style="color: white;"></h1>
+                        </div>
+                        <div class="hero-image text-center">
+                            <img src="assets/images/team/spinners22.avif" class="wow fadeInUp" alt="Hero Beef">
+                            <div class="after-image" class="wow zoomIn">
+                                <div class="image scene">
+                                    <span data-depth=".25"><img src="assets/images/home-beef/hero/el-6.png"
+                                            alt="After Element Image"></span>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+
+
     <!--====== Start Hero Section ======-->
     <!-- <section class="hero-section">
         <div class="hero-wrapper-four">
@@ -352,7 +445,65 @@
         </div>
     </section> -->
     <!--====== Start Category Section ======-->
-    <section class="category-section pt-50">
+
+    <!--====== Start About Section ======-->
+    <section class="about-section pt-50 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <!--=== About Image Box ===-->
+                    <div class="about-image-box mb-50 text-center text-xl-start wow fadeInLeft">
+                        <img src="assets/images/shawarma.avif" style="width:500px;" alt="About Image">
+                         <img src="assets/images/team/spinners20.avif" style="width:500px;" alt="About Image">
+                    </div>
+                    
+                </div>
+                <div class="col-xl-6">
+                    <!--=== Section Content Box ===-->
+                    <div class="section-content-box mb-50">
+                        <!--=== Section Title ===-->
+                        <div class="section-title wow fadeInDown">
+                            <span class="sub-title"><i class="flaticon-food-tray"></i> About us</span>
+                            <h3 style="color:#77af28; font-size:30px;">SPINNERS <span
+                                    style="font-size: 18px; "> HYGIENIC SHAWARMA
+                                    MAKERS-</span></h3>
+                            <h3>Bringing Back the True Shawarma Culture</h3>
+                        </div>
+                        <br>
+                        <p class="wow fadeInUp">
+                            <span style="font-weight: bold;">SPINNERS </span> HYGIENIC SHAWARMA MAKERS is born out of a
+                            mission — to bring back
+                            the true Arabic and Turkish shawarma culture — the one that values purity, flavour,
+                            health, and hygiene above all.<br>
+                            Our shawarmas are made in closed, sanitized kitchens, using premium quality farmfresh meat,
+                            authentic Arabic spices, and zero artificial colors or preservatives. Every
+                            bite you take is a blend of health, authenticity, and trust.
+                        </p>
+                       <p class="wow fadeInUp">
+    We offer three franchise models to suit different budgets and business visions.<br>
+
+    <i class="fas fa-store"></i> Our <span style="font-weight: bold;">Kiosk Model</span> is a compact setup under 300 sq. ft., perfect for high-footfall streets and
+    transit areas. <br>
+    <span style="font-weight:bold;">Menu: Shawarma & Soft Drinks</span><br>
+   This model is structured for quick operations and typically achieves breakeven at approximately ₹3–4 lakh + GST, ensuring faster financial recovery.<br>
+
+    <i class="fas fa-coffee"></i> Our <span style="font-weight: bold;">Café Model</span> provides indoor/outdoor seating in about 700 sq. ft. <br>
+    <span style="font-weight:bold;">Menu: Shawarma, Juices, Fried Chicken, Shawaya (optional)</span><br>
+    With balanced footfall and a broader menu offering, the café format generally attains breakeven at around ₹6–7 lakh + GST.<br>
+
+    <i class="fas fa-utensils"></i> Our <span style="font-weight: bold;">RestroCafé Model</span> is a premium 2000–3000 sq. ft. restaurant setup with ample seating
+    and ambience. <br>
+    <span style="font-weight:bold;">Menu: Shawarma, Fried Items, Desserts, Juices, Al Faham, Rice Dishes, Falooda, Kunafa</span><br>
+    Positioned for higher customer volume and premium service, this model typically reaches breakeven at approximately ₹12–14 lakh + GST.
+</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--====== End About Section ======-->
+    <section class="category-section pt-30">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -401,7 +552,7 @@
                         </div>
                         <div class="content">
                             <h4 class="title">SECTOR</h4>
-                               <span>5+ Varieties</span>
+                            <span>5+ Varieties</span>
                         </div>
                     </a>
                 </div>
@@ -413,7 +564,7 @@
                         </div>
                         <div class="content">
                             <h4 class="title">BURGER</h4>
-                             <span>3+ Varieties</span>
+                            <span>3+ Varieties</span>
                         </div>
                     </a>
                 </div>
@@ -425,7 +576,7 @@
                         </div>
                         <div class="content">
                             <h4 class="title">CUT SHAWARMA PLATE</h4>
-                             <span>3+ Varieties</span>
+                            <span>3+ Varieties</span>
                         </div>
                     </a>
                 </div>
@@ -437,7 +588,7 @@
                         </div>
                         <div class="content">
                             <h4 class="title">Starters</h4>
-                             <span>5+ Varieties</span>
+                            <span>5+ Varieties</span>
                         </div>
                     </a>
                 </div>
@@ -449,7 +600,7 @@
                         </div>
                         <div class="content">
                             <h4 class="title">FRIED CHICKEN</h4>
-                              <span>5+ Varieties</span>
+                            <span>5+ Varieties</span>
                         </div>
                     </a>
                 </div>
@@ -462,56 +613,18 @@
                         <div class="content">
                             <h4 class="title">JUICES & SHAKES
                             </h4>
-                              <span>40+ Varieties</span> 
+                            <span>40+ Varieties</span>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
-    </section><!--====== End Category Section ======-->
-    <!--====== Start About Section ======-->
-    <section class="about-section pt-90 pb-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6">
-                    <!--=== About Image Box ===-->
-                    <div class="about-image-box mb-50 text-center text-xl-start wow fadeInLeft">
-                        <img src="assets/images/shawarma.avif" style="width:500px;" alt="About Image">
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <!--=== Section Content Box ===-->
-                    <div class="section-content-box mb-50">
-                        <!--=== Section Title ===-->
-                        <div class="section-title wow fadeInDown">
-                            <span class="sub-title"><i class="flaticon-food-tray"></i> About us</span>
-                            <h3 style="color:#77af28; font-style: italic;">SPINNERS HYGIENIC SHAWARMA
-                                MAKERS-</h3>
-                            <h3>Bringing Back the True Shawarma Culture</h3>
-                        </div>
-                        <br>
-                        <p class="wow fadeInUp">At SPINNERS, we believe that Shawarma is not just food — it’s a culture.
-                            In today’s world, shawarma has sadly been reduced to an open-space, gas-cooked
-                            fast food, often made with cheaper meat, excess masala, and questionable hygiene.
-                            We’re here to change that narrative.<br><br>
-                            <span style="font-weight: bold;">SPINNERS HYGIENIC SHAWARMA MAKERS</span> is born out of a mission — to bring back
-                            the true Arabic and Turkish shawarma culture — the one that values purity, flavour,
-                            health, and hygiene above all.<br>
-                            Our shawarmas are made in closed, sanitized kitchens, using premium quality farmfresh meat,
-                            authentic Arabic spices, and zero artificial colors or preservatives. Every
-                            bite you take is a blend of health, authenticity, and trust.</p>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--====== End About Section ======-->
+    </section>
     <!--====== Start Offer Section ======-->
     <section class="offer-combo-section">
         <div class="offer-bg-wrapper bg_cover p-r z-1 pt-130 pb-80"
             style="background-image: url(assets/images/bg/offer-bg1.jpg);">
-             <div class="shape shape-one"><span></span> 
+            <div class="shape shape-one"><span></span>
             </div>
             <div class="container">
                 <div class="row">
@@ -697,27 +810,29 @@
             </div>
         </div>
     </section> -->
-<style>
-    .menu-thumbnail {
-        width: 100%;
-        max-width: 300px; /* adjust as per design */
-        overflow: hidden;
-        border-radius: 12px;
-        display: block;
-    }
+    <style>
+        .menu-thumbnail {
+            width: 100%;
+            max-width: 300px;
+            /* adjust as per design */
+            overflow: hidden;
+            border-radius: 12px;
+            display: block;
+        }
 
-    .menu-thumbnail img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 12px;
-        transition: transform 0.4s ease;
-    }
+        .menu-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.4s ease;
+        }
 
-    .menu-thumbnail:hover img {
-        transform: scale(1.05); /* subtle zoom on hover */
-    }
-</style>
+        .menu-thumbnail:hover img {
+            transform: scale(1.05);
+            /* subtle zoom on hover */
+        }
+    </style>
 
     <!--===== Start Menu Section ======-->
     <!-- <section class="menu-section pt-30 pb-100">
@@ -870,28 +985,29 @@
         </div>
     </section> -->
     <style>
-    /* Prevent title and text color from changing on hover */
-    .menu-item.style-eight .menu-content-wrap .title a,
-    .menu-item.style-eight .menu-content-wrap p,
-    .menu-item.style-eight .price-box  {
-        color: black !important; /* set your preferred color */
-        transition: color 0.3s ease;
-    }
+        /* Prevent title and text color from changing on hover */
+        .menu-item.style-eight .menu-content-wrap .title a,
+        .menu-item.style-eight .menu-content-wrap p,
+        .menu-item.style-eight .price-box {
+            color: black !important;
+            /* set your preferred color */
+            transition: color 0.3s ease;
+        }
 
-    /* On hover, keep the same color */
-    .menu-item.style-eight:hover .menu-content-wrap .title a,
-    .menu-item.style-eight:hover .menu-content-wrap p,
-    .menu-item.style-eight:hover .price-box .price {
-        color: black !important;
-    }
+        /* On hover, keep the same color */
+        .menu-item.style-eight:hover .menu-content-wrap .title a,
+        .menu-item.style-eight:hover .menu-content-wrap p,
+        .menu-item.style-eight:hover .price-box .price {
+            color: black !important;
+        }
 
-    /* Optional: Fix for mobile touch highlight turning text black */
-    .menu-item.style-eight:active .menu-content-wrap .title a,
-    .menu-item.style-eight:active .menu-content-wrap p,
-    .menu-item.style-eight:active .price-box .price {
-        color: black !important;
-    }
-</style>
+        /* Optional: Fix for mobile touch highlight turning text black */
+        .menu-item.style-eight:active .menu-content-wrap .title a,
+        .menu-item.style-eight:active .menu-content-wrap p,
+        .menu-item.style-eight:active .price-box .price {
+            color: black !important;
+        }
+    </style>
 
     <!--===== Start Gallery Section ======-->
     <section class="gallery-section">
@@ -948,10 +1064,10 @@
             <!--== Gallery Item ===-->
             <div class="gallery-item style-two">
                 <div class="gallery-img">
-                    <img src="assets/images/team/spinners4.webp" alt="gallery img">
+                    <img src="assets/images/team/spinners5.webp" alt="gallery img">
                     <div class="hover-content">
                         <div class="gallery-content">
-                            <h4 class="title"><a href="menu.html">BBQ SECTOR</a></h4>
+                            <h4 class="title"><a href="menu.html">BURGER</a></h4>
 
                         </div>
                     </div>
@@ -980,17 +1096,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-item style-two">
-                <div class="gallery-img">
-                    <img src="assets/images/team/spinners5.webp" alt="gallery img">
-                    <div class="hover-content">
-                        <div class="gallery-content">
-                            <h4 class="title"><a href="menu.html">BURGER</a></h4>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="gallery-item style-two">
                 <div class="gallery-img">
                     <img src="assets/images/team/spinners13.avif" alt="gallery img">
@@ -1105,7 +1211,7 @@
                     <!--=== Section Image Box ===-->
                     <div class="section-image-box style-two mb-50 text-end wow fadeInRight">
                         <div class="image-box">
-                            <img src="assets/images/team/Gemini_Generated_Image_ca3oz7ca3oz7ca3o.png" alt="Image" >
+                            <img src="assets/images/team/Gemini_Generated_Image_ca3oz7ca3oz7ca3o.png" alt="Image">
                         </div>
                     </div>
                 </div>
@@ -1116,110 +1222,113 @@
 
     <!--===== Start Testimonial Section ======-->
     <section class="testimonial-section">
-    <!--=== Testimonial Wrapper ===-->
-    <div class="testimonial-wrapper-bgc -bg pt-30 pb-130">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--=== Section Title ===-->
-                    <div class="section-title text-center mb-50 wow fadeInDown">
-                        <span class="sub-title"><i class="flaticon-food-tray"></i>Testimonials</span>
-                        <h2>What Our Customers Crave About SPINNERS</h2>
-                    </div>
-                </div>
-            </div>
-            <!--=== Testimonial Slider Two ===-->
-            <div class="testimonial-slider-two wow fadeInUp">
-                <!--=== Testimonial Item 1 ===-->
-                <div class="testimonial-item style-three mb-60">
-                    <div class="testimonial-content">
-                        <ul class="ratings">
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                        </ul>
-                        <p>The best shawarma I’ve ever had! Fresh, flavorful, and perfectly juicy — you can really taste
-                            the hygiene and quality in every bite. SPINNERS truly sets a new standard for shawarmas!</p>
-                        <div class="author-quote-item d-flex">
-                            <div class="author-thumb-item d-flex">
-                                <div class="author-thumb">
-                                    <img src="assets/images/team/testi5.jpg" alt="author image">
-                                </div>
-                                <div class="author-info">
-                                    <h5>Rahul Menon</h5>
-                                    
-                                </div>
-                            </div>
-                            <div class="quote">
-                                <i class="far fa-quote-right"></i>
-                            </div>
+        <!--=== Testimonial Wrapper ===-->
+        <div class="testimonial-wrapper-bgc -bg pt-30 pb-130">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!--=== Section Title ===-->
+                        <div class="section-title text-center mb-50 wow fadeInDown">
+                            <span class="sub-title"><i class="flaticon-food-tray"></i>Testimonials</span>
+                            <h2>What Our Customers Crave About SPINNERS</h2>
                         </div>
                     </div>
                 </div>
+                <!--=== Testimonial Slider Two ===-->
+                <div class="testimonial-slider-two wow fadeInUp">
+                    <!--=== Testimonial Item 1 ===-->
+                    <div class="testimonial-item style-three mb-60">
+                        <div class="testimonial-content">
+                            <ul class="ratings">
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                            </ul>
+                            <p>The best shawarma I’ve ever had! Fresh, flavorful, and perfectly juicy — you can really
+                                taste
+                                the hygiene and quality in every bite. SPINNERS truly sets a new standard for shawarmas!
+                            </p>
+                            <div class="author-quote-item d-flex">
+                                <div class="author-thumb-item d-flex">
+                                    <div class="author-thumb">
+                                        <img src="assets/images/team/testi5.jpg" alt="author image">
+                                    </div>
+                                    <div class="author-info">
+                                        <h5>Rahul Menon</h5>
 
-                <!--=== Testimonial Item 2 ===-->
-                <div class="testimonial-item style-three mb-60">
-                    <div class="testimonial-content">
-                        <ul class="ratings">
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                        </ul>
-                        <p>The loaded fries are a game changer! Crispy on the outside, soft inside, and topped with
-                            generous layers of chicken, sauce, and cheese — absolutely irresistible!</p>
-                        <div class="author-quote-item d-flex">
-                            <div class="author-thumb-item d-flex">
-                                <div class="author-thumb">
-                                    <img src="assets/images/team/testi6.jpg" alt="author image">
+                                    </div>
                                 </div>
-                                <div class="author-info">
-                                    <h5>John David</h5>
-                                    
+                                <div class="quote">
+                                    <i class="far fa-quote-right"></i>
                                 </div>
-                            </div>
-                            <div class="quote">
-                                <i class="far fa-quote-right"></i>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!--=== Testimonial Item 3 ===-->
-                <div class="testimonial-item style-three mb-60">
-                    <div class="testimonial-content">
-                        <ul class="ratings">
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                        </ul>
-                        <p>The Chick’s Combo is my go-to meal — crispy, juicy, and filling! I love that it’s served hot,
-                            fresh, and with the right balance of flavors. Totally worth every rupee!</p>
-                        <div class="author-quote-item d-flex">
-                            <div class="author-thumb-item d-flex">
-                                <div class="author-thumb">
-                                    <img src="assets/images/team/testi7.jpg" alt="author image">
+                    <!--=== Testimonial Item 2 ===-->
+                    <div class="testimonial-item style-three mb-60">
+                        <div class="testimonial-content">
+                            <ul class="ratings">
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                            </ul>
+                            <p>The loaded fries are a game changer! Crispy on the outside, soft inside, and topped with
+                                generous layers of chicken, sauce, and cheese — absolutely irresistible!</p>
+                            <div class="author-quote-item d-flex">
+                                <div class="author-thumb-item d-flex">
+                                    <div class="author-thumb">
+                                        <img src="assets/images/team/testi6.jpg" alt="author image">
+                                    </div>
+                                    <div class="author-info">
+                                        <h5>John David</h5>
+
+                                    </div>
                                 </div>
-                                <div class="author-info">
-                                    <h5>Arjun Nair</h5>
-                                    
+                                <div class="quote">
+                                    <i class="far fa-quote-right"></i>
                                 </div>
                             </div>
-                            <div class="quote">
-                                <i class="far fa-quote-right"></i>
+                        </div>
+                    </div>
+
+                    <!--=== Testimonial Item 3 ===-->
+                    <div class="testimonial-item style-three mb-60">
+                        <div class="testimonial-content">
+                            <ul class="ratings">
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                            </ul>
+                            <p>The Chick’s Combo is my go-to meal — crispy, juicy, and filling! I love that it’s served
+                                hot,
+                                fresh, and with the right balance of flavors. Totally worth every rupee!</p>
+                            <div class="author-quote-item d-flex">
+                                <div class="author-thumb-item d-flex">
+                                    <div class="author-thumb">
+                                        <img src="assets/images/team/testi7.jpg" alt="author image">
+                                    </div>
+                                    <div class="author-info">
+                                        <h5>Arjun Nair</h5>
+
+                                    </div>
+                                </div>
+                                <div class="quote">
+                                    <i class="far fa-quote-right"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!--===== End Testimonial Section ======-->
     <!--====== Start Blog Section ======-->
@@ -1317,9 +1426,11 @@
                                     <a href="index.html"><img src="assets/images/Spinners logo white.png"
                                             alt="Brand Logo" style="height: 130px;"></a>
                                 </div>
-                                <p>Redefining shawarma with purity, precision, and a taste you can trust every single time.</p>
+                                <p>Redefining shawarma with purity, precision, and a taste you can trust every single
+                                    time.</p>
                                 <ul class="social-link">
-                                    <li><a href="https://www.instagram.com/spinners_cafe?igsh=MWQ2dXI1cnE3Z3ZxYw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="https://www.instagram.com/spinners_cafe?igsh=MWQ2dXI1cnE3Z3ZxYw=="
+                                            target="_blank"><i class="fab fa-instagram"></i></a></li>
                                     <!-- <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
@@ -1328,7 +1439,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <!--=== Footer Widget ===-->
                         <div class="footer-widget footer-nav-widget mb-40 wow fadeInUp">
@@ -1350,11 +1461,11 @@
                             <div class="widget-content">
                                 <h4 class="widget-title">Contact Us</h4>
                                 <ul class="address-list">
-                                    
-                                <li><a href="tel:+91 9633288600">CHENGANNUR :+91 9633288600</a></li>
-                                <li><a href="tel: +91 9778023501">ADOOR :+91 9778023501</a></li>
-                                <li><a href="tel:+91 8590282237">KOLLAM :+91 8590282237</a></li>
-                                <li><a href="mailto:Info@spinners.in">Info@spinners.in</a></li>
+
+                                    <li><a href="tel:+91 9633288600">CHENGANNUR :+91 9633288600</a></li>
+                                    <li><a href="tel: +91 9778023501">ADOOR :+91 9778023501</a></li>
+                                    <li><a href="tel:+91 8590282237">KOLLAM :+91 8590282237</a></li>
+                                    <li><a href="mailto:Info@spinners.in">Info@spinners.in</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1411,6 +1522,9 @@
     <script src="assets/vendor/wow.min.js"></script>
     <!--====== Main js ======-->
     <script src="assets/js/theme.js"></script>
+
+
+
 </body>
 
 </html>
