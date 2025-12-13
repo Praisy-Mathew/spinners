@@ -266,41 +266,45 @@
                 /* adjust as needed */
             }
         }
+
         /* Default: show all images */
-.about-image-box img {
-    display: block;
-}
+        .about-image-box img {
+            display: block;
+        }
 
-/* Mobile view: show only 2nd image */
-@media (max-width: 767px) {
-    .about-image-box img:last-child {
-        display: none; /* hide first image on mobile */
-    }
-    .about-image-box img:first-child {
-        display: block; /* ensure second image is visible */
-        width: 100% !important;
-        height: auto;
-    }
-}
-/* Mobile View: Reverse the order of the two columns */
-@media (max-width: 767px) {
-    .about-section .row {
-        display: flex;
-        flex-direction: column-reverse;
-    }
+        /* Mobile view: show only 2nd image */
+        @media (max-width: 767px) {
+            .about-image-box img:last-child {
+                display: none;
+                /* hide first image on mobile */
+            }
 
-    /* Hide the first image and show only second one */
-    .about-image-box img:last-child {
-        display: none;
-    }
+            .about-image-box img:first-child {
+                display: block;
+                /* ensure second image is visible */
+                width: 100% !important;
+                height: auto;
+            }
+        }
 
-    .about-image-box img:first-child {
-        display: block;
-        width: 100% !important;
-        height: auto;
-    }
-}
+        /* Mobile View: Reverse the order of the two columns */
+        @media (max-width: 767px) {
+            .about-section .row {
+                display: flex;
+                flex-direction: column-reverse;
+            }
 
+            /* Hide the first image and show only second one */
+            .about-image-box img:last-child {
+                display: none;
+            }
+
+            .about-image-box img:first-child {
+                display: block;
+                width: 100% !important;
+                height: auto;
+            }
+        }
     </style>
 
 </head>
@@ -454,9 +458,9 @@
                     <!--=== About Image Box ===-->
                     <div class="about-image-box mb-50 text-center text-xl-start wow fadeInLeft">
                         <img src="assets/images/shawarma.avif" style="width:500px;" alt="About Image">
-                         <img src="assets/images/team/spinners20.avif" style="width:500px;" alt="About Image">
+                        <img src="assets/images/team/spinners20.avif" style="width:500px;" alt="About Image">
                     </div>
-                    
+
                 </div>
                 <div class="col-xl-6">
                     <!--=== Section Content Box ===-->
@@ -464,8 +468,8 @@
                         <!--=== Section Title ===-->
                         <div class="section-title wow fadeInDown">
                             <span class="sub-title"><i class="flaticon-food-tray"></i> About us</span>
-                            <h3 style="color:#77af28; font-size:30px;">SPINNERS <span
-                                    style="font-size: 18px; "> HYGIENIC SHAWARMA
+                            <h3 style="color:#77af28; font-size:30px;">SPINNERS <span style="font-size: 18px; ">
+                                    HYGIENIC SHAWARMA
                                     MAKERS-</span></h3>
                             <h3>Bringing Back the True Shawarma Culture</h3>
                         </div>
@@ -479,23 +483,31 @@
                             authentic Arabic spices, and zero artificial colors or preservatives. Every
                             bite you take is a blend of health, authenticity, and trust.
                         </p>
-                       <p class="wow fadeInUp">
-    We offer three franchise models to suit different budgets and business visions.<br>
+                        <p class="wow fadeInUp">
+                            We offer three franchise models to suit different budgets and business visions.<br>
 
-    <i class="fas fa-store"></i> Our <span style="font-weight: bold;">Kiosk Model</span> is a compact setup under 300 sq. ft., perfect for high-footfall streets and
-    transit areas. <br>
-    <span style="font-weight:bold;">Menu: Shawarma & Soft Drinks</span><br>
-   This model is structured for quick operations and typically achieves breakeven at approximately ₹3–4 lakh + GST, ensuring faster financial recovery.<br>
+                            <i class="fas fa-store"></i> Our <span style="font-weight: bold;">Kiosk Model</span> is a
+                            compact setup under 300 sq. ft., perfect for high-footfall streets and
+                            transit areas. <br>
+                            <span style="font-weight:bold;">Menu: Shawarma & Soft Drinks</span><br>
+                            This model is structured for quick operations and typically achieves breakeven at
+                            approximately ₹3–4 lakh + GST, ensuring faster financial recovery.<br>
 
-    <i class="fas fa-coffee"></i> Our <span style="font-weight: bold;">Café Model</span> provides indoor/outdoor seating in about 700 sq. ft. <br>
-    <span style="font-weight:bold;">Menu: Shawarma, Juices, Fried Chicken, Shawaya (optional)</span><br>
-    With balanced footfall and a broader menu offering, the café format generally attains breakeven at around ₹6–7 lakh + GST.<br>
+                            <i class="fas fa-coffee"></i> Our <span style="font-weight: bold;">Café Model</span>
+                            provides indoor/outdoor seating in about 700 sq. ft. <br>
+                            <span style="font-weight:bold;">Menu: Shawarma, Juices, Fried Chicken, Shawaya
+                                (optional)</span><br>
+                            With balanced footfall and a broader menu offering, the café format generally attains
+                            breakeven at around ₹6–7 lakh + GST.<br>
 
-    <i class="fas fa-utensils"></i> Our <span style="font-weight: bold;">RestroCafé Model</span> is a premium 2000–3000 sq. ft. restaurant setup with ample seating
-    and ambience. <br>
-    <span style="font-weight:bold;">Menu: Shawarma, Fried Items, Desserts, Juices, Al Faham, Rice Dishes, Falooda, Kunafa</span><br>
-    Positioned for higher customer volume and premium service, this model typically reaches breakeven at approximately ₹12–14 lakh + GST.
-</p>
+                            <i class="fas fa-utensils"></i> Our <span style="font-weight: bold;">RestroCafé Model</span>
+                            is a premium 2000–3000 sq. ft. restaurant setup with ample seating
+                            and ambience. <br>
+                            <span style="font-weight:bold;">Menu: Shawarma, Fried Items, Desserts, Juices, Al Faham,
+                                Rice Dishes, Falooda, Kunafa</span><br>
+                            Positioned for higher customer volume and premium service, this model typically reaches
+                            breakeven at approximately ₹12–14 lakh + GST.
+                        </p>
 
 
                     </div>
@@ -711,11 +723,15 @@
                                 <span class="sub-title"><i class="flaticon-food-tray"></i>Our Values, Wrapped in Every
                                     Shawarma</span>
                                 <h2>Our Commitment to Authenticity</h2>
-                                <p>We don’t just sell shawarma.
+                                <!-- <p>We don’t just sell shawarma.
                                     We serve trust wrapped in flavor, hygiene folded with health, and authenticity that
                                     satisfies the soul.
                                     SPINNERS HYGIENIC SHAWARMA MAKERS —
-                                    Where quality meets care, and tradition meets trust.</p>
+                                    Where quality meets care, and tradition meets trust.</p> -->
+                                <p>At Spinners Hygienic Shawarma Makers, hygiene is the heart of everything we do. From
+                                    fresh ingredients to spotless kitchens and careful preparation, every step is
+                                    designed to ensure clean, safe, and high-quality food. Each shawarma reflects our
+                                    promise of purity, trust, and a healthy, flavourful experience every time.</p>
                             </div>
 
                             <a href="menu.html" class="theme-btn style-one" style="color: black;">Explore Menu</a>
@@ -1011,7 +1027,7 @@
     </style>
 
     <!--===== Start Gallery Section ======-->
-    
+
     <style>
         .gallery-item.style-two .gallery-img img {
             width: 500px;
@@ -1220,7 +1236,7 @@
             </div>
         </div>
     </section>
-<section class="gallery-section">
+    <section class="gallery-section">
         <!--== Gallery Slider One ===-->
         <div class="gallery-slider-one">
             <!--== Gallery Item ===-->
@@ -1422,7 +1438,7 @@
             <!--=== Footer Widget Area ===-->
             <div class="footer-widget-area pt-120 pb-75">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-lg-2 col-md-6 col-sm-6">
                         <!--=== Footer Widget ===-->
                         <div class="footer-widget footer-about-widget mb-40 wow fadeInUp">
                             <div class="widget-content">
@@ -1444,7 +1460,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-lg-2 col-md-6 col-sm-6">
                         <!--=== Footer Widget ===-->
                         <div class="footer-widget footer-nav-widget mb-40 wow fadeInUp">
                             <div class="widget-content">
@@ -1465,16 +1481,31 @@
                             <div class="widget-content">
                                 <h4 class="widget-title">Contact Us</h4>
                                 <ul class="address-list">
-
-                                    <li><a href="tel:+91 9633288600">CHENGANNUR :+91 9633288600</a></li>
-                                    <li><a href="tel: +91 9778023501">ADOOR :+91 9778023501</a></li>
-                                    <li><a href="tel:+91 8590282237">KOLLAM :+91 8590282237</a></li>
-                                    <li><a href="mailto:Info@spinners.in">Info@spinners.in</a></li>
+                                    <li><a href="tel:+919061910226">For any Inconvenience: <br>+91 9061910226</a></li>
+                                    <li><a href="tel:+918075684085">For Other Enquiries: <br>+91 8075684085</a></li>
+                                    <li><a href="tel:+919888389858">For Franchise Enquiries: <br>+91 9888389858</a></li>
+                                   
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
+                        <!--=== Footer Widget ===-->
+                        <div class="footer-widget footer-contact-widget mb-40 wow fadeInUp">
+                            <div class="widget-content">
+                                <h4 class="widget-title">Our Branches & Contact Details</h4>
+                                <ul class="address-list">
+
+                                    <li><a href="tel:+91 9633288600">CHENGANNUR :+91 9633288600</a></li>
+                                    <li><a href="tel: +91 9778023501">ADOOR :+91 9778023501</a></li>
+                                    <li><a href="tel:+91 8590282237">KOLLAM :+91 8590282237</a></li>
+                                    <li><a href="tel:+91 9074836395">KOTTARAKKARA :+91 9074836395</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
                         <!--=== Footer Widget ===-->
                         <div class="footer-widget footer-opening-widget mb-40 wow fadeInUp">
                             <div class="widget-content">
